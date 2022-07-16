@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: tutorial
+      MYSQL_DATABASE: groceries_prices
+      MYSQL_USER: user # database username
+      MYSQL_PASSWORD: tutorial # database password
+    volumes:
+      - ./sql/structure:/docker-entrypoint-initdb.d
+      - mysqldb:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    links:
+      - mysql
+    depends_on:
+      - mysql
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+
+volumes:
+  mysqldb:
+    driver: local
+
+networks:
+  default:
+    driver: bridge
+    name: groceries_prices
