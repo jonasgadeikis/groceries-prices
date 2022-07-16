@@ -17,7 +17,7 @@ For Windows OS read this article [here](https://stackoverflow.com/questions/3212
 
 Then you can visit phpmyadmin in [http://localhost:8080](http://localhost:8080).
 
-Use credentials from docker-compose.yml (marked by comment) to login to database (server is mysql). Database named "mysql_tutorial_db" will be created alongside 5 tables.
+Use credentials from docker-compose.yml (marked by comment) to login to database (server is mysql). Database named "groceries_prices" will be created alongside 5 tables.
 
 To remove containers run command:
 ```
