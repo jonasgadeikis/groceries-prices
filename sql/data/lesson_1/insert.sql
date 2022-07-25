@@ -71,3 +71,19 @@ INSERT INTO `product` (`name`, `category_id`)
 SELECT 'DVARO sūris, 50% rieb., 240g', `id`
 FROM `category`
 WHERE `name` = 'Fermentiniai sūriai';
+
+-- Bonus
+
+INSERT INTO `product_price` (`product_id`, `shop_id`, `value_without_vat`, `value_with_vat`)
+SELECT `product`.`id`, `shop`.`id`, 1.5289, 1.85
+FROM `product`
+JOIN `shop`
+WHERE `product`.`name` = 'Juoda AGOTOS duona, 800g'
+AND `shop`.`name` = 'Rimi';
+
+SET @price_entry = LAST_INSERT_ID();
+
+INSERT INTO `product_price_history` (`product_price_id`, `value_without_vat`, `value_with_vat`)
+SELECT `product_price`.`id`, `product_price`.`value_without_vat`, `product_price`.`value_with_vat`
+FROM `product_price`
+WHERE `product_price`.`id` = @price_entry;
