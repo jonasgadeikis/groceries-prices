@@ -12,6 +12,11 @@ For Ubuntu run command:
 ```
 sudo apt install make
 ```
+Project is using docker image so you will need to install docker and docker compose.
+
+For Ubuntu follow these instructions:
+* [Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
+* [Docker compose](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04)
 
 For Windows OS read this article [here](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows).
 
